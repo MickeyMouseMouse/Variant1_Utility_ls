@@ -97,9 +97,8 @@ public class Ls {
 
     // Функция для анализа флагов (наличие/отсутствие/корректность)
     private static void getFlags(String[] args) {
-        for (int i = 0;;) {
-            if (i == args.length - 1) break;
-
+        int i = 0;
+        while (i != args.length - 1) {
             if (args[i].equals("[-l]")) {
                 flL = true;
                 i++;
@@ -206,9 +205,9 @@ public class Ls {
 
     // Преобразования размера файла из байт в кило-, мега- или гигабайты при необходимости
     private static void addHumanReadableLength(StringBuilder str, long lengthItemInBytes) {
-        final double forGB = 1073741824.0; // 1024^3
-        final double forMB = 1048576.0; // 1024^2
-        final double forKB = 1024.0; // 1024^1
+        final double forGB = 1024 * 1024 * 1024;
+        final double forMB = 1024 * 1024;
+        final double forKB = 1024.0;
 
         DecimalFormat lengthItem = new DecimalFormat("###.##"); // Шаблон для вывода дробных чисел
         if (lengthItemInBytes >= forGB)
