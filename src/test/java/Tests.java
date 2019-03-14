@@ -1,5 +1,7 @@
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.TreeMap;
 
 public class Tests {
@@ -46,17 +48,24 @@ public class Tests {
         Ls.main(args);
 
         TreeMap<String, String> rightAnswer = new TreeMap<>();
-        rightAnswer.put("1.png", "");
+        rightAnswer.put("1.png", "11-  08:32  412038");
         assertEquals(rightAnswer, Ls.answer);
     }
 
     @Test
     public void test5() {
-        String[] args = {"[-l]", "/Users/AndJ/Documents/debugUtilityLs/1.png"};
+        String[] args = {"[-o", "1.txt]", "/Users/AndJ/Documents/debugUtilityLs/1.png"};
         Ls.main(args);
 
-        TreeMap<String, String> rightAnswer = new TreeMap<>();
-        rightAnswer.put("1.png", "11-  08:32  412038");
-        assertEquals(rightAnswer, Ls.answer);
+        String rightAnswer = "11-  08:32  412038   1.png";
+        String fromFile = "";
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("1.txt"));
+            fromFile = reader.readLine();
+        } catch (Exception e) {
+            System.out.println("test 5 - runtime error");
+        }
+
+        assertEquals(rightAnswer, fromFile);
     }
 }

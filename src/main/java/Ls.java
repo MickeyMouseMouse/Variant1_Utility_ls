@@ -99,6 +99,9 @@ public class Ls {
 
     // Функция для анализа флагов (наличие/отсутствие/корректность)
     private static void getFlags(String[] args) {
+        // Если указан файл, то информация о нем выводится автоматически
+        if (item.isFile()) flL = true;
+
         int i = 0;
         while (i != args.length - 1) {
             if (args[i].equals("[-l]")) {
