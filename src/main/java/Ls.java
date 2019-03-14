@@ -3,6 +3,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
@@ -91,7 +92,7 @@ public class Ls {
                 getMoreInfo(false); // [-l]
 
         // Реверс при наличии флага -r
-        if(flR) answer.descendingMap();
+        if (flR) answer = new TreeMap<>(answer.descendingMap());
 
         // Вывод результата
         printAnswer();
