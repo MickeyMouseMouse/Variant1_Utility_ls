@@ -3,7 +3,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.Collections;
 import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
@@ -213,7 +212,7 @@ public class Ls {
     private static void addHumanReadableLength(StringBuilder str, long lengthItemInBytes) {
         final double forGB = 1024 * 1024 * 1024;
         final double forMB = 1024 * 1024;
-        final double forKB = 1024.0;
+        final double forKB = 1024;
 
         DecimalFormat lengthItem = new DecimalFormat("###.##"); // Шаблон для вывода дробных чисел
         if (lengthItemInBytes >= forGB)
