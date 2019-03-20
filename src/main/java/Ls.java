@@ -45,7 +45,7 @@ public class Ls {
     public static void main(String[] args) {
         // Проверка на отсутствие аргументов
         if (args.length == 0) {
-            System.out.println("There is no arguments");
+            System.out.println("Example: [-l] [-h] [-r] [-o output.txt] directory_or_file");
             return;
         }
 
@@ -129,6 +129,7 @@ public class Ls {
             }
 
             System.out.println(args[i] + " - unknown flag");
+            System.out.println("Example: [-l] [-h] [-r] [-o output.txt] directory_or_file");
             System.exit(0);
         }
     }

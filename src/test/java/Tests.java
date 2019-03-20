@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 public class Tests {
     // Для корректной работы тестов на Вашей машине, нужно задать актуальные входные данные!
-    // Тесты запускать по одному!
+    // ТЕСТЫ ЗАПУСКАТЬ ПО ОДНОМУ!
     @Test
     public void test1() {
         String[] args = {"/Users/AndJ/Documents/debugUtilityLs"};
