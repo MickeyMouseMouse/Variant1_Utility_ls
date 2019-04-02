@@ -123,7 +123,7 @@ public class Ls {
             }
 
             if (args[i].equals("[-o")) {
-                outputPath = args[++i].substring(0, args[i].length() - 1);
+                outputPath = args[++i].substring(args[i].length() - 1);
                 i++;
                 continue;
             }
@@ -228,7 +228,7 @@ public class Ls {
     // Функция для вывода результата
     private static void printAnswer() {
         // Вывод answer в консоль
-        if (outputPath.equals("")) {
+        if (outputPath.isEmpty()) {
             answer.forEach((k,v) -> {
                 if (flL)
                     System.out.println(v + "   " + k);
@@ -251,7 +251,7 @@ public class Ls {
             }
             catch (IOException e)
             {
-                System.out.println("Failed to create output file");
+                System.out.println("Failed to create output file: " + outputPath);
             }
         }
     }
