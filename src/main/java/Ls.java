@@ -99,7 +99,7 @@ public class Ls {
 
     // Функция для анализа флагов (наличие/отсутствие/корректность)
     private static void getFlags(String[] args) {
-        // Если указан файл, то информация о нем выводится автоматически
+        // Если указан файл, то (по условию) информация о нем выводится автоматически
         if (item.isFile()) flL = true;
 
         int i = 0;
@@ -194,6 +194,7 @@ public class Ls {
         }
     }
 
+    // Вычисление размера директории
     private static long getDirectorySize(File item) {
         long result = 0;
         File[] files = item.listFiles();
@@ -209,7 +210,7 @@ public class Ls {
     }
 
 
-    // Преобразования размера файла из байт в кило-, мега- или гигабайты при необходимости
+    // Преобразование размера файла из байт в кило-, мега- или гигабайты
     private static void addHumanReadableLength(StringBuilder str, long lengthItemInBytes) {
         final double forGB = 1024 * 1024 * 1024;
         final double forMB = 1024 * 1024;
@@ -227,7 +228,7 @@ public class Ls {
 
     // Функция для вывода результата
     private static void printAnswer() {
-        // Вывод answer в консоль
+        // Вывод в консоль
         if (outputPath.isEmpty()) {
             answer.forEach((k,v) -> {
                 if (flL)
@@ -236,7 +237,7 @@ public class Ls {
                     System.out.println(k);
             });
         } else {
-            // Вывод answer в указанный файл (при наличии флага -o)
+            // Вывод в указанный файл (при наличии флага [-o 1.txt])
             try
             {
                 FileWriter outputFile = new FileWriter(outputPath);
