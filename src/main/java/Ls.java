@@ -42,6 +42,11 @@ public class Ls {
     // (private отсутствует для возможности прогона тестов)
     static TreeMap<String, String> answer = new TreeMap<>();
 
+    // Константы для перевода байт в кило-, мега-, гигабайты
+    final private static double forGB = 1 << 30;
+    final private static double forMB = 1 << 20;
+    final private static double forKB = 1 << 10;
+
     public static void main(String[] args) {
         // Проверка на отсутствие аргументов
         if (args.length == 0) {
@@ -123,7 +128,7 @@ public class Ls {
             }
 
             if (args[i].equals("[-o")) {
-                outputPath = args[++i].substring(args[i].length() - 1);
+                outputPath = args[++i].substring(0, args[i].length() - 1);
                 i++;
                 continue;
             }
@@ -212,10 +217,6 @@ public class Ls {
 
     // Преобразование размера файла из байт в кило-, мега- или гигабайты
     private static void addHumanReadableLength(StringBuilder str, long lengthItemInBytes) {
-        final double forGB = 1024 * 1024 * 1024;
-        final double forMB = 1024 * 1024;
-        final double forKB = 1024;
-
         DecimalFormat lengthItem = new DecimalFormat("###.##"); // Шаблон для вывода дробных чисел
         if (lengthItemInBytes >= forGB)
             str.append(lengthItem.format(lengthItemInBytes / forGB)).append("GB");
