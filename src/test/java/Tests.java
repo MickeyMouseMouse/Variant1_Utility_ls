@@ -26,7 +26,7 @@ public class Tests {
 
         TreeMap<String, String> rightAnswer = new TreeMap<>();
         rightAnswer.put("myFolder", "rwx  08:31  0B");
-        rightAnswer.put("1.png", "rw-  08:32  402KB");
+        rightAnswer.put("1.png", "rw-  08:32  402.38KB");
         rightAnswer.put(".DS_Store", "rw-  05:07  6KB");
         assertEquals(rightAnswer, Ls.answer);
     }

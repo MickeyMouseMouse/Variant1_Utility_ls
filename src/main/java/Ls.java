@@ -218,11 +218,11 @@ public class Ls {
 
         DecimalFormat lengthItem = new DecimalFormat("###.##"); // Шаблон для вывода дробных чисел
         if (lengthItemInBytes >= forGB)
-            str.append(lengthItem.format(lengthItemInBytes / forGB)).append("GB");
+            str.append(lengthItem.format((double) lengthItemInBytes / forGB)).append("GB");
         else if (lengthItemInBytes >= forMB)
-            str.append(lengthItem.format(lengthItemInBytes / forMB)).append("MB");
+            str.append(lengthItem.format((double) lengthItemInBytes / forMB)).append("MB");
         else if (lengthItemInBytes >= forKB)
-            str.append(lengthItem.format(lengthItemInBytes / forKB)).append("KB");
+            str.append(lengthItem.format((double) lengthItemInBytes / forKB)).append("KB");
         else str.append(lengthItemInBytes).append("B");
     }
 
